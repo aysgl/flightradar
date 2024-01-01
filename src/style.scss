@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700;800;900&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.leaflet-container {
+  height: 100vh;
+  z-index: 1;
+}
+
+.leaflet-popup {
+  .leaflet-popup-content-wrapper {
+    border-radius: 10px;
+  }
+  .leaflet-popup-content {
+    margin: 10px !important;
+  }
+  .leaflet-popup-close-button {
+    display: none;
+  }
+}
+
+.modal {
+  max-width: 34vw;
+  &-dialog {
+    margin: 0.5vw;
+    height: 98vh;
+  }
+  &-content {
+    box-shadow: 1px 10px 20px rgb(0, 0, 0, 0.1);
+  }
+  .svg {
+    transform: rotate(90deg) !important;
+  }
+}
+
+.small {
+  font-size: 0.7rem;
+}
+
+.progress-wrapper {
+  background-color: #e8ebee;
+  margin: 20px 0px;
+  height: 3px;
+
+  .progress {
+    height: 3px;
+    display: inline;
+    &-bar {
+      height: 3px;
+      overflow: visible;
+      top: -24px;
+
+      &::before {
+        content: "";
+        background-image: url("../../plane.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: -11px;
+        right: -2px;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loader {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid #fac142;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      background: transparent;
+      border: 2px dashed #fac142;
+      border-radius: 50%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px dashed #fac142;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      background: transparent;
+      transform-origin: top left;
+      animation: radar82 2s linear infinite;
+      border-top: 1px dashed #fff;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fac142;
+        transform-origin: top left;
+        transform: rotate(-55deg);
+        filter: blur(30px) drop-shadow(20px 20px 20px #fac142);
+      }
+    }
+  }
+}
+
+@keyframes radar82 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
